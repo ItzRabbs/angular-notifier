@@ -48,6 +48,9 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
+# Angular cache
+/.angular/cache
+
 # TypeScript cache
 *.tsbuildinfo
 
