@@ -4,6 +4,18 @@ Also see **[GitHub releases](https://github.com/dominique-mueller/angular-notifi
 
 <br>
 
+## [10.0.0](https://www.npmjs.com/package/@itzrabbs/angular-notifier/v/10.0.0) (2022-02-01)
+
+### Features
+
+- Upgrade to Angular 12 ([#1](https://github.com/itzrabbs/angular-notifier/pull/1))
+
+### BREAKING CHANGES
+
+- The upgrade to Angular 12 breaks compatibility with Angular 11.
+
+<br>
+
 ## [9.1.0](https://github.com/dominique-mueller/angular-notifier/releases/tag/9.1.0) (2021-07-13)
 
 ### Features
