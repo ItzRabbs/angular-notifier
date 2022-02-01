@@ -1,22 +1,23 @@
 {
-	"compileOnSave": false,
-	"compilerOptions": {
-		"baseUrl": "src",
-		"declaration": false,
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"lib": [
-			"es2016",
-			"dom"
-		],
-		"module": "es2015",
-		"moduleResolution": "node",
-		"outDir": "./build/tsc",
-		"sourceMap": true,
-		"target": "es5"
-	},
-	"exclude": [
-		"node_modules",
-		"src/lib/**/*.spec.ts"
-	]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "angular-notifier": ["dist/angular-notifier"]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

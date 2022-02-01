@@ -4,13 +4,6 @@
 
 **A well designed, fully animated, highly customizable, and easy-to-use notification library for your **Angular 2+** application.**
 
-[![npm version](https://img.shields.io/npm/v/angular-notifier.svg?maxAge=3600&style=flat)](https://www.npmjs.com/package/angular-notifier)
-[![dependency status](https://img.shields.io/david/dominique-mueller/angular-notifier.svg?maxAge=3600&style=flat)](https://david-dm.org/dominique-mueller/angular-notifier)
-[![travis ci build status](https://img.shields.io/travis/dominique-mueller/angular-notifier/master.svg?maxAge=3600&style=flat)](https://travis-ci.org/dominique-mueller/angular-notifier)
-[![Codecov](https://img.shields.io/codecov/c/github/dominique-mueller/angular-notifier.svg?maxAge=3600&style=flat)](https://codecov.io/gh/dominique-mueller/angular-notifier)
-[![Known Vulnerabilities](https://snyk.io/test/github/dominique-mueller/angular-notifier/badge.svg)](https://snyk.io/test/github/dominique-mueller/simple-progress-webpack-plugin)
-[![license](https://img.shields.io/npm/l/angular-notifier.svg?maxAge=3600&style=flat)](https://github.com/dominique-mueller/angular-notifier/LICENSE)
-
 </div>
 
 <br><br>
@@ -25,11 +18,11 @@ You can play around with this library with **[this Stackblitz right here](https:
 
 ## How to install
 
-You can get **angular-notifier** via **npm** by either adding it as a new *dependency* to your `package.json` file and running npm install,
+You can get **angular-notifier** via **npm** by either adding it as a new _dependency_ to your `package.json` file and running npm install,
 or running the following command:
 
-``` bash
-npm install angular-notifier
+```bash
+npm install @itzrabbs/angular-notifier
 ```
 
 <br>
@@ -38,12 +31,18 @@ npm install angular-notifier
 
 The following list describes the compatibility with Angular:
 
-| Angular Notifier  | Angular |
-| ----------------- | ------- |
-| `1.x`             | `2.x`   |
-| `2.x`             | `4.x`   |
-| `3.x`             | `5.x`   |
-| `4.x`             | `6.x`   |
+| Angular Notifier | Angular |
+| ---------------- | ------- |
+| `1.x`            | `2.x`   |
+| `2.x`            | `4.x`   |
+| `3.x`            | `5.x`   |
+| `4.x`            | `6.x`   |
+| `5.x`            | `7.x`   |
+| `6.x`            | `8.x`   |
+| `7.x`            | `9.x`   |
+| `8.x`            | `10.x`  |
+| `9.x`            | `11.x`  |
+| `10.x`           | `12.x`  |
 
 <br>
 
@@ -53,15 +52,15 @@ By default, meaning without any polyfills, **angular-notifier** is compatible wi
 Bringing in the following polyfills will improve browser support:
 
 - To be able to use the latest and greatest JavaScript features in older browsers (e.g. older version of IE & Safari), you might want to
-add **[core-js](https://github.com/zloirock/core-js)** to your polyfills.
+  add **[core-js](https://github.com/zloirock/core-js)** to your polyfills.
 - For animation support (in particular, for better
-**[Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)** support), you might want to use the **[web-animations-js](https://github.com/web-animations/web-animations-js)** polyfill. For details, see the corresponding
-**[CanIUse page](http://caniuse.com/#feat=web-animation)**.
+  **[Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)** support), you might want to use the **[web-animations-js](https://github.com/web-animations/web-animations-js)** polyfill. For details, see the corresponding
+  **[CanIUse page](http://caniuse.com/#feat=web-animation)**.
 
 > For detailed information about the Angular browser support read the
-**[official Angular browser support documentation](https://angular.io/docs/ts/latest/guide/browser-support.html)**. If you generated your
-Angular project with the **[Angular CLI](https://github.com/angular/angular-cli)**, all the polyfills mentioned above do already exist in
-your `polyfills.ts` file - waiting for you to enable and install them.
+> **[official Angular browser support documentation](https://angular.io/docs/ts/latest/guide/browser-support.html)**. If you generated your
+> Angular project with the **[Angular CLI](https://github.com/angular/angular-cli)**, all the polyfills mentioned above do already exist in
+> your `polyfills.ts` file - waiting for you to enable and install them.
 
 <br><br><br>
 
@@ -77,30 +76,28 @@ bring the styles into our project.
 First of all, make **angular-notifier** globally available to your Angular application by importing (and optionally also configuring) the
 `NotifierModule` the your root Angular module. For example:
 
-``` typescript
+```typescript
 import { NotifierModule } from 'angular-notifier';
 
-@NgModule( {
-  imports: [
-    NotifierModule
-  ]
-} )
+@NgModule({
+  imports: [NotifierModule],
+})
 export class AppModule {}
 ```
 
 But wait -- your probably might want to customize your notifications' look and behaviour according to your requirements and needs. To do so,
 call the `withConfig` method on the `NotifierModule`, and pass in the options. For example:
 
-``` typescript
+```typescript
 import { NotifierModule } from 'angular-notifier';
 
-@NgModule( {
+@NgModule({
   imports: [
-    NotifierModule.withConfig( {
+    NotifierModule.withConfig({
       // Custom options in here
-    } )
-  ]
-} )
+    }),
+  ],
+})
 export class AppModule {}
 ```
 
@@ -111,14 +108,14 @@ export class AppModule {}
 In addition, you have to place the `notifier-container` component somewhere in your application, best at the last element of your
 root (app) component. For example:
 
-``` typescript
-@Component( {
+```typescript
+@Component({
   selector: 'my-app',
   template: `
     <h1>Hello World</h1>
     <notifier-container></notifier-container>
-  `
-} )
+  `,
+})
 export class AppComponent {}
 ```
 
@@ -153,20 +150,18 @@ the styles actually needed by our application. The **angular-notifier** styles a
 Using **angular-notifier** is as simple as it can get -- simple import and inject the `NotifierService` into every component (directive,
 service, ...) you want to use in. For example:
 
-``` typescript
+```typescript
 import { NotifierService } from 'angular-notifier';
 
-@Component( {
-	// ...
-} )
+@Component({
+  // ...
+})
 export class MyAwesomeComponent {
-
   private readonly notifier: NotifierService;
 
-  constructor( notifierService: NotifierService ) {
+  constructor(notifierService: NotifierService) {
     this.notifier = notifierService;
   }
-
 }
 ```
 
@@ -176,56 +171,56 @@ export class MyAwesomeComponent {
 
 Showing a notification is simple - all your need is a type, and a message to be displayed. For example:
 
-``` typescript
-this.notifier.notify( 'success', 'You are awesome! I mean it!' );
+```typescript
+this.notifier.notify('success', 'You are awesome! I mean it!');
 ```
 
-You can further pass in a *notification ID* as the third (optional) argument. Essentially, such a *notification ID* is nothing more but a
+You can further pass in a _notification ID_ as the third (optional) argument. Essentially, such a _notification ID_ is nothing more but a
 unique string tha can be used later on to gain access (and thus control) to this specific notification. For example:
 
-``` typescript
-this.notifier.notify( 'success', 'You are awesome! I mean it!', 'THAT_NOTIFICATION_ID' );
+```typescript
+this.notifier.notify('success', 'You are awesome! I mean it!', 'THAT_NOTIFICATION_ID');
 ```
 
-> For example, you might want to define a *notification ID* if you know that, at some point in the future, you will need to remove *this
-> exact* notification.
+> For example, you might want to define a _notification ID_ if you know that, at some point in the future, you will need to remove _this
+> exact_ notification.
 
 **The syntax above is actually just a shorthand version of the following:**
 
-``` typescript
-this.notifier.show( {
+```typescript
+this.notifier.show({
   type: 'success',
   message: 'You are awesome! I mean it!',
-  id: 'THAT_NOTIFICATION_ID' // Again, this is optional
-} );
+  id: 'THAT_NOTIFICATION_ID', // Again, this is optional
+});
 ```
 
 <br>
 
 ### Hide notifications
 
-You can also hide notifications. To hide a specific notification - assuming you've defined a *notification ID* when creating it, simply
+You can also hide notifications. To hide a specific notification - assuming you've defined a _notification ID_ when creating it, simply
 call:
 
-``` typescript
-this.notifier.hide( 'THAT_NOTIFICATION_ID' );
+```typescript
+this.notifier.hide('THAT_NOTIFICATION_ID');
 ```
 
 Furthermore, your can hide the newest notification by calling:
 
-``` typescript
+```typescript
 this.notifier.hideNewest();
 ```
 
 Or, your could hide the oldest notification:
 
-``` typescript
+```typescript
 this.notifier.hideOldest();
 ```
 
 And, of course, it's also possible to hide all visible notifications at once:
 
-``` typescript
+```typescript
 this.notifier.hideAll();
 ```
 
@@ -246,7 +241,7 @@ should already provide a great User Experience.
 
 With the `position` property you can define where exactly notifications will appear on the screen:
 
-``` typescript
+```typescript
 position: {
 
   horizontal: {
@@ -296,7 +291,7 @@ position: {
 
 With the `theme` property you can change the overall look and feel of your notifications:
 
-``` typescript
+```typescript
 /**
  * Defines the notification theme, responsible for the Visual Design of notifications
  * @type {string}
@@ -319,7 +314,7 @@ when being created. For example, using `material` as the theme results in all no
 
 With the `behaviour` property you can define how notifications will behave in different situations:
 
-``` typescript
+```typescript
 behaviour: {
 
   /**
@@ -365,9 +360,7 @@ You can define a custom `ng-template` as follows:
 
 ```html
 <ng-template #customNotification let-notificationData="notification">
-	<my-custom-alert type="notificationData.type">
-		{{ notificationData.message }}
-	</my-custom-alert>
+  <my-custom-alert type="notificationData.type"> {{ notificationData.message }} </my-custom-alert>
 </ng-template>
 ```
 
@@ -375,27 +368,24 @@ In this case you could wrap your own HTML, even a `<my-custom-alert>` component 
 
 Inside your component, you can then reference the `<ng-template>` by its template variable `#customNotification` using Angular's `ViewChild`:
 
-```
-import { ViewChild } from '@angular/core'
-...
-@Component({...})
+```typescript
+import { ViewChild } from '@angular/core';
+
+@Component({
+  // ...
+})
 export class SomeComponent {
-	@ViewChild('customNotification') customNotificationTmpl;
-   ...
-   constructor(private notifierService: NotifierService) {}
+  @ViewChild('customNotification', { static: true }) customNotificationTmpl;
 
-   showNotification() {
-	   const msg = {
-		   message: 'Hi there!',
-		   type: 'info'
-	   };
+  constructor(private notifierService: NotifierService) {}
 
-	   this.notifier.show({
-		   message: msg.message,
-		   type: msg.messageType,
-		   template: this.customNotificationTmpl
-		});
-   }
+  showNotification() {
+    this.notifier.show({
+      message: 'Hi there!',
+      type: 'info',
+      template: this.customNotificationTmpl,
+    });
+  }
 }
 ```
 
@@ -405,7 +395,7 @@ export class SomeComponent {
 
 With the `animations` property your can define whether and how exactly notification will be animated:
 
-``` typescript
+```typescript
 animations: {
 
   /**
@@ -493,20 +483,20 @@ animations: {
 
 ### In short -- the default configuration
 
-To sum it up, the following is the default configuration *(copy-paste-friendly)*:
+To sum it up, the following is the default configuration _(copy-paste-friendly)_:
 
-``` typescript
+```typescript
 const notifierDefaultOptions: NotifierOptions = {
   position: {
     horizontal: {
       position: 'left',
-      distance: 12
+      distance: 12,
     },
     vertical: {
       position: 'bottom',
       distance: 12,
-      gap: 10
-    }
+      gap: 10,
+    },
   },
   theme: 'material',
   behaviour: {
@@ -514,36 +504,26 @@ const notifierDefaultOptions: NotifierOptions = {
     onClick: false,
     onMouseover: 'pauseAutoHide',
     showDismissButton: true,
-    stacking: 4
+    stacking: 4,
   },
   animations: {
     enabled: true,
     show: {
       preset: 'slide',
       speed: 300,
-      easing: 'ease'
+      easing: 'ease',
     },
     hide: {
       preset: 'fade',
       speed: 300,
       easing: 'ease',
-      offset: 50
+      offset: 50,
     },
     shift: {
       speed: 300,
-      easing: 'ease'
+      easing: 'ease',
     },
-    overlap: 150
-  }
+    overlap: 150,
+  },
 };
 ```
-
-<br><br><br>
-
-## Creator
-
-**Dominique Müller**
-
-- E-Mail: **[dominique.m.mueller@gmail.com](mailto:dominique.m.mueller@gmail.com)**
-- Website: **[www.devdom.io](https://www.devdom.io)**
-- Twitter: **[@itsdevdom](https://twitter.com/itsdevdom)**
