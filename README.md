@@ -43,6 +43,7 @@ The following list describes the compatibility with Angular:
 | `8.x`            | `10.x`  |
 | `9.x`            | `11.x`  |
 | `10.x`           | `12.x`  |
+| `11.x`           | `13.x`  |
 
 <br>
 
