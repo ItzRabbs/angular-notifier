@@ -4,7 +4,7 @@ Also see **[GitHub releases](https://github.com/dominique-mueller/angular-notifi
 
 <br>
 
-## [10.0.0](https://www.npmjs.com/package/@itzrabbs/angular-notifier/v/10.0.0) (2022-02-01)
+## [10.1.0](https://www.npmjs.com/package/@itzrabbs/angular-notifier/v/10.1.0) (2022-02-01)
 
 ### Features
 
