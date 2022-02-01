@@ -1,8 +1,8 @@
 name: Release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: [master]
 
 jobs:
   publish-to-npm:
@@ -20,7 +20,9 @@ jobs:
       run: npm ci
     - name: Build library
       run: npm run build:library
+      
     - name: Publish to npm
-      run: npm publish ./dist/angular-notifier
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./dist/angular-notifier/package.json
