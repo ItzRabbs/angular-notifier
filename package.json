@@ -34,12 +34,7 @@
     "test:library": "ng test angular-notifier",
     "test:library:upload-coverage": "codecov -f coverage/coverage-final.json"
   },
-  "dependencies": {
-    "tslib": "2.3.1"
-  },
-  "peerDependencies": {
-    "rxjs": ">= 6.0.0 < 8.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@angular-builders/jest": "~13.0.3",
     "@angular-devkit/build-angular": "~13.2.4",
@@ -69,6 +64,7 @@
     "rxjs": "~6.6.x",
     "sass": "^1.49.4",
     "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
     "typescript": "~4.5.5",
     "zone.js": "~0.11.4"
   }
