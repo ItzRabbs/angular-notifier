@@ -1,0 +1,27 @@
+name: Update Angular
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          
+      - name: Change Directory
+        run: |
+          cd angular
+      - run: npm install
+      
+      - uses: itzrabbs/ng-update@v1
+        with:
+          repo-token: ${{ secrets.GH_TOKEN }}
+          project-path: ./angular
