@@ -24,7 +24,7 @@ describe('Notifier Queue Service', () => {
 
   it('should instantiate', () => {
     expect(queueService).toBeDefined();
-    expect(queueService.actionStream instanceof Subject).toEqual(true);
+    expect(queueService.actionStream).toEqual(expect.any(Subject));
   });
 
   it('should pass through one action', () => {

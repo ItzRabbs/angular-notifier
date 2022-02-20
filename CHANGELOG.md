@@ -8,7 +8,7 @@ Also see **[GitHub releases](https://github.com/dominique-mueller/angular-notifi
 
 ### Features
 
-- Upgrade to Angular 13 ([#3](https://github.com/itzrabbs/angular-notifier/pull/3))
+- Upgrade to Angular 13, enable partial-Ivy compilation ([#3](https://github.com/itzrabbs/angular-notifier/pull/3))
 
 ### BREAKING CHANGES
 
