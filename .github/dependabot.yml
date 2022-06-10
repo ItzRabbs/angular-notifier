@@ -3,14 +3,18 @@ updates:
 - package-ecosystem: npm
   directory: "/"
   schedule:
-    interval: "weekly"
-    day: "monday"
+    interval: daily
     time: "03:00"
-    timezone: "America/New_York"
+    timezone: America/New_York
   open-pull-requests-limit: 10
+  versioning-strategy: increase
   target-branch: "develop"
   labels:
   - dependencies
   ignore:
   - dependency-name: "@angular*"
   - dependency-name: "karma"
+  commit-message:
+    prefix: fix
+    prefix-development: chore
+    include: scope
