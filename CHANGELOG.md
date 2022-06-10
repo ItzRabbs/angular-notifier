@@ -4,23 +4,23 @@ Also see **[GitHub releases](https://github.com/dominique-mueller/angular-notifi
 
 <br>
 
-## [11.1.0](https://www.npmjs.com/package/@itzrabbs/angular-notifier/v/11.1.0) (2022-02-01)
+## [11.0.0](https://github.com/dominique-mueller/angular-notifier/releases/tag/11.0.0) (2022-02-20)
 
 ### Features
 
-- Upgrade to Angular 13, enable partial-Ivy compilation ([#3](https://github.com/itzrabbs/angular-notifier/pull/3))
+- Upgrade to Angular 13, enable partial-Ivy compilation ([#235](https://github.com/dominique-mueller/angular-notifier/pull/235))
 
 ### BREAKING CHANGES
 
-- The upgrade to Angular 13 breaks compatibility with Angular 12.
+- The upgrade to Angular 13 breaks compatibility with Angular 12. The library is now published as partial-Ivy code.
 
 <br>
 
-## [10.1.0](https://www.npmjs.com/package/@itzrabbs/angular-notifier/v/10.1.0) (2022-02-01)
+## [10.0.0](https://github.com/dominique-mueller/angular-notifier/releases/tag/10.0.0) (2022-02-20)
 
 ### Features
 
-- Upgrade to Angular 12 ([#1](https://github.com/itzrabbs/angular-notifier/pull/1))
+- Upgrade to Angular 12 ([#232](https://github.com/dominique-mueller/angular-notifier/pull/232))
 
 ### BREAKING CHANGES
 
