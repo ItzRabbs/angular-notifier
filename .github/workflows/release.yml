@@ -20,6 +20,7 @@ jobs:
       
       - uses: codfish/semantic-release-action@v1
         with:
+          repository_url: https://github.com/itzrabbs/angular-notifier.git
           plugins: |
             [
               "@semantic-release/commit-analyzer",
