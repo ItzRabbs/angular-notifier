@@ -1,3 +1,13 @@
+This repo is solely meant for automated updates of dependencies found in dominique-mueller's [angular-notifier](https://github.com/dominique-mueller/angular-notifier) package.
+
+PRs will not be accepted for new features or bug fixes. Reach out to the original maintainer.
+
+```
+npm install angular-notifier-updated
+```
+
+---
+
 <div align="center">
 
 # angular-notifier
@@ -22,7 +32,7 @@ You can get **angular-notifier** via **npm** by either adding it as a new _depen
 or running the following command:
 
 ```bash
-npm install @itzrabbs/angular-notifier
+npm install angular-notifier
 ```
 
 <br>
