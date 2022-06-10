@@ -58,7 +58,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^27.4.7",
-    "ng-packagr": "^14.0.1",
+    "ng-packagr": "^13.2.1",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "rxjs": "~7.5.x",
