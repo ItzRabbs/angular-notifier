@@ -1,20 +1,20 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "03:00"
-    timezone: America/New_York
-  open-pull-requests-limit: 10
-  versioning-strategy: increase
-  target-branch: "develop"
-  labels:
-  - dependencies
-  ignore:
-  - dependency-name: "@angular*"
-  - dependency-name: "karma"
-  commit-message:
-    prefix: fix
-    prefix-development: chore
-    include: scope
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "03:00"
+      timezone: America/New_York
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    target-branch: "master"
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: "@angular*"
+      - dependency-name: "karma"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope

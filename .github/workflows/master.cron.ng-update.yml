@@ -2,10 +2,10 @@ name: Update Angular
 
 on:
   schedule:
-    - cron: '0 8 * * 1'
+    - cron: "0 8 * * 1"
   workflow_dispatch:
     branches:
-      - develop
+      - master
 
 jobs:
   run:
@@ -16,10 +16,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-          
+
       - run: npm install
-      
+
       - uses: RabbitPlayground/ng-update@v1
         with:
           repo-token: ${{ secrets.GH_TOKEN }}
-          base-branch: develop
+          base-branch: master

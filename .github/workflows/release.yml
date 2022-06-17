@@ -21,7 +21,7 @@ jobs:
       - uses: codfish/semantic-release-action@v1
         with:
           repository_url: https://github.com/${{github.REPOSITORY}}.git
-          branch: develop
+          branch: master
           plugins: |
             [
               "@semantic-release/commit-analyzer",
