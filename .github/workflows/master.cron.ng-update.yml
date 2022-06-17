@@ -19,7 +19,7 @@ jobs:
           
       - run: npm install
       
-      - uses: itzrabbs/ng-update@v1
+      - uses: RabbitPlayground/ng-update@v1
         with:
           repo-token: ${{ secrets.GH_TOKEN }}
           base-branch: develop
