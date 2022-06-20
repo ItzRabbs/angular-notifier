@@ -19,7 +19,7 @@ jobs:
 
       - run: npm install
 
-      - uses: RabbitPlayground/ng-update@v1
+      - uses: fast-facts/ng-update@v1
         with:
           repo-token: ${{ secrets.GH_TOKEN }}
           base-branch: master
