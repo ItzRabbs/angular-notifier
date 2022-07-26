@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -44,8 +47,13 @@
             "main": "projects/angular-notifier-demo/src/main.ts",
             "polyfills": "projects/angular-notifier-demo/src/polyfills.ts",
             "tsConfig": "projects/angular-notifier-demo/tsconfig.app.json",
-            "assets": ["projects/angular-notifier-demo/src/favicon.ico", "projects/angular-notifier-demo/src/assets"],
-            "styles": ["projects/angular-notifier-demo/src/styles.scss"],
+            "assets": [
+              "projects/angular-notifier-demo/src/favicon.ico",
+              "projects/angular-notifier-demo/src/assets"
+            ],
+            "styles": [
+              "projects/angular-notifier-demo/src/styles.scss"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,

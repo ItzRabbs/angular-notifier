@@ -13,7 +13,6 @@ updates:
       - dependencies
     ignore:
       - dependency-name: "@angular*"
-      - dependency-name: "karma"
     commit-message:
       prefix: fix
       prefix-development: chore
