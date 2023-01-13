@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build:demo": "ng build angular-notifier-demo --configuration production",
-    "build:library": "rimraf -r dist && npm run build:library:angular && npm run build:library:sass && npm run build:library:css && npm run build:library:docs && npm run build:library:package",
+    "build:library": "rimraf dist && npm run build:library:angular && npm run build:library:sass && npm run build:library:css && npm run build:library:docs && npm run build:library:package",
     "build:library:angular": "ng build angular-notifier --configuration production",
     "build:library:css": "sass projects/angular-notifier/src:dist/angular-notifier --style=expanded",
     "build:library:docs": "copyfiles \"docs/**\" CHANGELOG.md MIGRATION-GUIDE.md LICENSE README.md \"dist/angular-notifier\"",
