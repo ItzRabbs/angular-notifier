@@ -13,9 +13,7 @@ export class NotifierAnimationService {
   /**
    * List of animation presets (currently static)
    */
-  private readonly animationPresets: {
-    [animationPresetName: string]: NotifierAnimationPreset;
-  };
+  private readonly animationPresets: Record<string, NotifierAnimationPreset>;
 
   /**
    * Constructor

@@ -33,7 +33,7 @@ export class NotifierContainerComponent implements OnDestroy {
   /**
    * List of currently somewhat active notifications
    */
-  public notifications: Array<NotifierNotification>;
+  public notifications: NotifierNotification[];
 
   /**
    * Change detector
@@ -191,11 +191,11 @@ export class NotifierContainerComponent implements OnDestroy {
           notification.component.show().then(this.tempPromiseResolver); // Done
         });
       } else {
-        const stepPromises: Array<Promise<void>> = [];
+        const stepPromises: Promise<void>[] = [];
 
         // Are there now too many notifications?
         if (numberOfNotifications > this.config.behaviour.stacking) {
-          const oldNotifications: Array<NotifierNotification> = this.notifications.slice(1, numberOfNotifications - 1);
+          const oldNotifications: NotifierNotification[] = this.notifications.slice(1, numberOfNotifications - 1);
 
           // Are animations enabled?
           if (this.config.animations.enabled) {
@@ -225,7 +225,7 @@ export class NotifierContainerComponent implements OnDestroy {
             stepPromises.push(notification.component.show());
           }
         } else {
-          const oldNotifications: Array<NotifierNotification> = this.notifications.slice(0, numberOfNotifications - 1);
+          const oldNotifications: NotifierNotification[] = this.notifications.slice(0, numberOfNotifications - 1);
 
           // Are animations enabled?
           if (this.config.animations.enabled) {
@@ -272,7 +272,7 @@ export class NotifierContainerComponent implements OnDestroy {
    */
   private handleHideAction(action: NotifierAction): Promise<void> {
     return new Promise<void>((resolve: () => void) => {
-      const stepPromises: Array<Promise<void>> = [];
+      const stepPromises: Promise<void>[] = [];
 
       // Does the notification exist / are there even any notifications? (let's prevent accidential errors)
       const notification: NotifierNotification | undefined = this.findNotificationById(action.payload);
@@ -287,7 +287,7 @@ export class NotifierContainerComponent implements OnDestroy {
         resolve();
         return;
       }
-      const oldNotifications: Array<NotifierNotification> = this.notifications.slice(0, notificationIndex);
+      const oldNotifications: NotifierNotification[] = this.notifications.slice(0, notificationIndex);
 
       // Do older notifications exist, and thus do we need to shift other notifications as a consequence?
       if (oldNotifications.length > 0) {
@@ -393,7 +393,7 @@ export class NotifierContainerComponent implements OnDestroy {
           }, this.config.animations.hide.offset * animationOffset);
         }
       } else {
-        const stepPromises: Array<Promise<void>> = [];
+        const stepPromises: Promise<void>[] = [];
         for (let i: number = numberOfNotifications - 1; i >= 0; i--) {
           stepPromises.push(this.notifications[i].component.hide());
         }
@@ -413,7 +413,7 @@ export class NotifierContainerComponent implements OnDestroy {
    * @param   toMakePlace   Flag, defining in which direciton to shift
    * @returns Promise, resolved when done
    */
-  private shiftNotifications(notifications: Array<NotifierNotification>, distance: number, toMakePlace: boolean): Promise<void> {
+  private shiftNotifications(notifications: NotifierNotification[], distance: number, toMakePlace: boolean): Promise<void> {
     return new Promise<void>((resolve: () => void) => {
       // Are there any notifications to shift?
       if (notifications.length === 0) {
@@ -421,7 +421,7 @@ export class NotifierContainerComponent implements OnDestroy {
         return;
       }
 
-      const notificationPromises: Array<Promise<void>> = [];
+      const notificationPromises: Promise<void>[] = [];
       for (let i: number = notifications.length - 1; i >= 0; i--) {
         notificationPromises.push(notifications[i].component.shift(distance, toMakePlace));
       }

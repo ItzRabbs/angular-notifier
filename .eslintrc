@@ -8,15 +8,13 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier",
     "simple-import-sort"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/stylistic",
-    "plugin:prettier/recommended"
+    "plugin:@typescript-eslint/stylistic"
   ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",

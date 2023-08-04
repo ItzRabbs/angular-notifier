@@ -29,7 +29,7 @@ describe('Slide Animation Preset', () => {
           transform: 'translate3d( 0, 0, 0 )',
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.show(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.show(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -56,7 +56,7 @@ describe('Slide Animation Preset', () => {
           transform: 'translate3d( 0, 0, 0 )',
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.show(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.show(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -83,7 +83,7 @@ describe('Slide Animation Preset', () => {
           transform: 'translate3d( -50%, 0, 0 )',
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.show(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.show(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -110,7 +110,7 @@ describe('Slide Animation Preset', () => {
           transform: 'translate3d( -50%, 0, 0 )',
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.show(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.show(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -136,12 +136,11 @@ describe('Slide Animation Preset', () => {
           transform: `translate3d( 0, ${testNotification.component.getShift()}px, 0 )`,
         },
         to: {
-          transform: `translate3d( calc( -100% - ${
-            testConfig.position.horizontal.distance
-          }px - 10px ), ${testNotification.component.getShift()}px, 0 )`,
+          transform: `translate3d( calc( -100% - ${testConfig.position.horizontal.distance
+            }px - 10px ), ${testNotification.component.getShift()}px, 0 )`,
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -165,12 +164,11 @@ describe('Slide Animation Preset', () => {
           transform: `translate3d( 0, ${testNotification.component.getShift()}px, 0 )`,
         },
         to: {
-          transform: `translate3d( calc( 100% + ${
-            testConfig.position.horizontal.distance
-          }px + 10px ), ${testNotification.component.getShift()}px, 0 )`,
+          transform: `translate3d( calc( 100% + ${testConfig.position.horizontal.distance
+            }px + 10px ), ${testNotification.component.getShift()}px, 0 )`,
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -197,7 +195,7 @@ describe('Slide Animation Preset', () => {
           transform: `translate3d( -50%, calc( -100% - ${testConfig.position.horizontal.distance}px - 10px ), 0 )`,
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -224,7 +222,7 @@ describe('Slide Animation Preset', () => {
           transform: `translate3d( -50%, calc( 100% + ${testConfig.position.horizontal.distance}px + 10px ), 0 )`,
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = slide.hide(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });

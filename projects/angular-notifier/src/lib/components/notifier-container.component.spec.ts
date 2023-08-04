@@ -36,10 +36,10 @@ describe('Notifier Container Component', () => {
     componentFixture.detectChanges();
     jest.spyOn(queueService, 'continue');
 
-    queueService.push(<any>{
+    queueService.push({
       payload: 'STUFF',
       type: 'WHATEVS',
-    });
+    } as any);
     componentFixture.detectChanges();
     tick();
 
@@ -61,13 +61,13 @@ describe('Notifier Container Component', () => {
         type: 'SHOW',
       });
       componentFixture.detectChanges();
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       expect(listElements.length).toBe(1);
 
       const mockNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockNotificationComponent, 'show'); // Continue
-      componentInstance.onNotificationReady(<any>mockNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -97,7 +97,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -112,7 +112,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'show'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -145,7 +145,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -160,7 +160,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'shift'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -175,7 +175,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockThirdNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockThirdNotificationComponent, 'show'); // Continue
-      componentInstance.onNotificationReady(<any>mockThirdNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockThirdNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -208,7 +208,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -223,7 +223,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'shift'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -238,7 +238,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockThirdNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockThirdNotificationComponent, 'show'); // Continue
-      componentInstance.onNotificationReady(<any>mockThirdNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockThirdNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -268,7 +268,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -283,7 +283,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'shift'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -298,12 +298,12 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockThirdNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockThirdNotificationComponent, 'show'); // Continue
-      componentInstance.onNotificationReady(<any>mockThirdNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockThirdNotificationComponent as any); // Trigger the ready event manually
 
       tick(
         testNotifierConfig.animations.hide.speed +
-          testNotifierConfig.animations.shift.speed -
-          <number>testNotifierConfig.animations.overlap,
+        testNotifierConfig.animations.shift.speed -
+        (testNotifierConfig.animations.overlap || 0) as number,
       );
 
       expect(mockFirstNotificationComponent.hide).toHaveBeenCalled();
@@ -339,7 +339,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -353,7 +353,7 @@ describe('Notifier Container Component', () => {
       tick();
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       expect(listElements.length).toBe(0);
       expect(mockNotificationComponent.hide).toHaveBeenCalled();
@@ -384,7 +384,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockNotificationComponent as any); // Trigger the ready event manually
 
       tick();
 
@@ -397,7 +397,7 @@ describe('Notifier Container Component', () => {
       tick();
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       expect(listElements.length).toBe(1);
       expect(mockNotificationComponent.hide).not.toHaveBeenCalled();
@@ -427,7 +427,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'shift'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       // Show second notification
       const testNotificationId = 'FAKE_ID';
@@ -442,7 +442,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       queueService.push({
@@ -454,7 +454,7 @@ describe('Notifier Container Component', () => {
       tick();
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 3;
       expect(listElements.length).toBe(1);
@@ -485,7 +485,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'shift'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       // Show second notification
       const testNotificationId = 'FAKE_ID';
@@ -500,7 +500,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       queueService.push({
@@ -512,7 +512,7 @@ describe('Notifier Container Component', () => {
       tick(testNotifierConfig.animations.hide.speed);
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 3;
       expect(listElements.length).toBe(1);
@@ -539,7 +539,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'shift'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       // Show second notification
       const testNotificationId = 'FAKE_ID';
@@ -554,7 +554,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       queueService.push({
@@ -563,10 +563,10 @@ describe('Notifier Container Component', () => {
       });
       componentFixture.detectChanges();
 
-      tick(testNotifierConfig.animations.hide.speed - <number>testNotifierConfig.animations.overlap);
+      tick(testNotifierConfig.animations.hide.speed - (testNotifierConfig.animations.overlap || 0) as number);
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 3;
       expect(listElements.length).toBe(1);
@@ -600,14 +600,14 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       componentInstance.onNotificationDismiss(testNotificationId);
       tick();
       componentFixture.detectChanges();
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 2;
       expect(listElements.length).toBe(0);
@@ -641,7 +641,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       // Show first notification
       queueService.push({
@@ -654,7 +654,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       queueService.push({
@@ -665,7 +665,7 @@ describe('Notifier Container Component', () => {
       tick();
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 3;
       expect(listElements.length).toBe(1);
@@ -719,7 +719,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       // Show first notification
       queueService.push({
@@ -733,7 +733,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       queueService.push({
@@ -744,7 +744,7 @@ describe('Notifier Container Component', () => {
       tick();
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 3;
       expect(listElements.length).toBe(1);
@@ -800,7 +800,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       // Show first notification
       queueService.push({
@@ -813,7 +813,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       queueService.push({
@@ -824,7 +824,7 @@ describe('Notifier Container Component', () => {
       tick();
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 3;
       expect(listElements.length).toBe(0);
@@ -851,7 +851,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockFirstNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockFirstNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockFirstNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockFirstNotificationComponent as any); // Trigger the ready event manually
 
       // Show first notification
       queueService.push({
@@ -864,7 +864,7 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
       const mockSecondNotificationComponent: MockNotifierNotificationComponent = new MockNotifierNotificationComponent();
       jest.spyOn(mockSecondNotificationComponent, 'hide'); // Continue
-      componentInstance.onNotificationReady(<any>mockSecondNotificationComponent); // Trigger the ready event manually
+      componentInstance.onNotificationReady(mockSecondNotificationComponent as any); // Trigger the ready event manually
 
       // Hide second notification
       queueService.push({
@@ -873,10 +873,10 @@ describe('Notifier Container Component', () => {
       componentFixture.detectChanges();
 
       const numberOfNotifications = 2;
-      tick(testNotifierConfig.animations.hide.speed + numberOfNotifications * <number>testNotifierConfig.animations.hide.offset);
+      tick(testNotifierConfig.animations.hide.speed + numberOfNotifications * (testNotifierConfig.animations.hide.offset || 0) as number);
       componentFixture.detectChanges(); // Run a second change detection (to update the template)
 
-      const listElements: Array<DebugElement> = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
+      const listElements: DebugElement[] = componentFixture.debugElement.queryAll(By.css('.notifier__container-list-item'));
 
       const expectedCallTimes = 3;
       expect(listElements.length).toBe(0);

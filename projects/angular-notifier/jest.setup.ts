@@ -11,6 +11,6 @@ Object.defineProperty(window, 'getComputedStyle', {
 // Animations APi calls. However, we essentially do nothing in the method - which is absolutely fine, as every 'elmeent.animate' call gets
 // mocked away by Jest anyway.
 
-(<any>window).Element.prototype.animate = (): any => {
+(window as any).Element.prototype.animate = (): any => {
   // Nothing to implement
 };

@@ -8,7 +8,7 @@ import { fade } from './fade.animation-preset';
 describe('Fade Animation Preset', () => {
   describe('(show)', () => {
     it('should return animation keyframes', () => {
-      const testNotification: MockNotification = new MockNotification(<NotifierConfig>{});
+      const testNotification: MockNotification = new MockNotification({} as NotifierConfig);
       const expectedKeyframes: NotifierAnimationPresetKeyframes = {
         from: {
           opacity: '0',
@@ -17,7 +17,7 @@ describe('Fade Animation Preset', () => {
           opacity: '1',
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = fade.show(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = fade.show(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });
@@ -25,7 +25,7 @@ describe('Fade Animation Preset', () => {
 
   describe('(hide)', () => {
     it('should return animation keyframes', () => {
-      const testNotification: MockNotification = new MockNotification(<NotifierConfig>{});
+      const testNotification: MockNotification = new MockNotification({} as NotifierConfig);
       const expectedKeyframes: NotifierAnimationPresetKeyframes = {
         from: {
           opacity: '1',
@@ -34,7 +34,7 @@ describe('Fade Animation Preset', () => {
           opacity: '0',
         },
       };
-      const keyframes: NotifierAnimationPresetKeyframes = fade.hide(<any>testNotification);
+      const keyframes: NotifierAnimationPresetKeyframes = fade.hide(testNotification as any);
 
       expect(keyframes).toEqual(expectedKeyframes);
     });

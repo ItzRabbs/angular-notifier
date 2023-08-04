@@ -175,7 +175,7 @@ export class NotifierNotificationComponent implements AfterViewInit {
         const animationData: NotifierAnimationData = this.animationService.getAnimationData('show', this.notification);
 
         // Set initial styles (styles before animation), prevents quick flicker when animation starts
-        const animatedProperties: Array<string> = Object.keys(animationData.keyframes[0]);
+        const animatedProperties: string[] = Object.keys(animationData.keyframes[0]);
         for (let i: number = animatedProperties.length - 1; i >= 0; i--) {
           this.renderer.setStyle(this.element, animatedProperties[i], animationData.keyframes[0][animatedProperties[i]]);
         }

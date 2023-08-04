@@ -23,7 +23,7 @@ describe('Notifier Notification Model', () => {
   it('should generate a notification ID automatically, if not defined', () => {
     // Mock the date (as the ID generation is based on it)
     const mockDate: MockDate = new MockDate();
-    jest.spyOn(<any>window, 'Date').mockImplementation(() => mockDate);
+    jest.spyOn(window as any, 'Date').mockImplementation(() => mockDate);
 
     const testNotifierNotification: NotifierNotification = new NotifierNotification({
       message: testNotificationMessage,

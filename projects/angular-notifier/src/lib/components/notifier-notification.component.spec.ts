@@ -400,9 +400,8 @@ describe('Notifier Notification Component', () => {
 
       // Mock away the Web Animations API
       jest.spyOn(componentFixture.nativeElement, 'animate').mockImplementation(() => {
-        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${
-          shiftDistance + testNotifierConfig.position.vertical.gap
-        }px, 0 )`; // Fake animation result
+        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${shiftDistance + testNotifierConfig.position.vertical.gap
+          }px, 0 )`; // Fake animation result
         return fakeAnimation;
       });
 
@@ -480,9 +479,8 @@ describe('Notifier Notification Component', () => {
       // Mock away the Web Animations API
       const shiftDistance = 100;
       jest.spyOn(componentFixture.nativeElement, 'animate').mockImplementation(() => {
-        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${
-          -shiftDistance - testNotifierConfig.position.vertical.gap
-        }px, 0 )`; // Fake animation result
+        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${-shiftDistance - testNotifierConfig.position.vertical.gap
+          }px, 0 )`; // Fake animation result
         return fakeAnimation;
       });
 
@@ -560,9 +558,8 @@ describe('Notifier Notification Component', () => {
       // Mock away the Web Animations API
       const shiftDistance = 100;
       jest.spyOn(componentFixture.nativeElement, 'animate').mockImplementation(() => {
-        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${
-          -shiftDistance - testNotifierConfig.position.vertical.gap
-        }px, 0 )`; // Fake animation result
+        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${-shiftDistance - testNotifierConfig.position.vertical.gap
+          }px, 0 )`; // Fake animation result
         return fakeAnimation;
       });
 
@@ -640,9 +637,8 @@ describe('Notifier Notification Component', () => {
       // Mock away the Web Animations API
       const shiftDistance = 100;
       jest.spyOn(componentFixture.nativeElement, 'animate').mockImplementation(() => {
-        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${
-          shiftDistance + testNotifierConfig.position.vertical.gap
-        }px, 0 )`; // Fake animation result
+        componentFixture.debugElement.styles['transform'] = `translate3d( 0, ${shiftDistance + testNotifierConfig.position.vertical.gap
+          }px, 0 )`; // Fake animation result
         return fakeAnimation;
       });
 
@@ -723,9 +719,8 @@ describe('Notifier Notification Component', () => {
       // Mock away the Web Animations API
       const shiftDistance = 100;
       jest.spyOn(componentFixture.nativeElement, 'animate').mockImplementation(() => {
-        componentFixture.debugElement.styles['transform'] = `translate3d( -50%, ${
-          shiftDistance + testNotifierConfig.position.vertical.gap
-        }px, 0 )`; // Fake animation result
+        componentFixture.debugElement.styles['transform'] = `translate3d( -50%, ${shiftDistance + testNotifierConfig.position.vertical.gap
+          }px, 0 )`; // Fake animation result
         return fakeAnimation;
       });
 
@@ -960,7 +955,7 @@ describe('Notifier Notification Component', () => {
       componentInstance = componentFixture.componentInstance;
 
       // Get the service from the component's local injector
-      timerService = <MockNotifierTimerService>componentFixture.debugElement.injector.get(NotifierTimerService);
+      timerService = componentFixture.debugElement.injector.get(NotifierTimerService) as MockNotifierTimerService;
     }
   }
 });

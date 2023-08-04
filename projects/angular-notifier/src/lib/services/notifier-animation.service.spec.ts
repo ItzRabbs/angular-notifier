@@ -52,7 +52,7 @@ describe('Notifier Animation Service', () => {
         fill: 'forwards',
       },
     };
-    const animationData: NotifierAnimationData = animationService.getAnimationData('show', <any>testNotification);
+    const animationData: NotifierAnimationData = animationService.getAnimationData('show', testNotification as any);
 
     expect(animationData).toEqual(expectedAnimationData);
   });
@@ -83,7 +83,7 @@ describe('Notifier Animation Service', () => {
         fill: 'forwards',
       },
     };
-    const animationData: NotifierAnimationData = animationService.getAnimationData('hide', <any>testNotification);
+    const animationData: NotifierAnimationData = animationService.getAnimationData('hide', testNotification as any);
 
     expect(animationData).toEqual(expectedAnimationData);
   });
@@ -131,7 +131,7 @@ class MockNotification {
   /**
    * Notification component
    */
-  public component: { [key: string]: () => any } = {
+  public component: Record<string, () => any> = {
     getConfig: () => this.config,
     getHeight: () => mockNotificationHeight,
     getShift: () => mockNotificationShift,

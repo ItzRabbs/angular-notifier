@@ -44,7 +44,7 @@ describe('Notifier Timer Service', () => {
   }));
 
   it('should pause and resume the timer', fakeAsync(() => {
-    jest.spyOn(<any>window, 'Date').mockImplementation(() => mockDate);
+    jest.spyOn(window as any, 'Date').mockImplementation(() => mockDate);
     const timerServiceCallback = jest.fn();
     timerService.start(fullAnimationTime).then(timerServiceCallback);
 
