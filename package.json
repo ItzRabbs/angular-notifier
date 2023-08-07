@@ -50,7 +50,7 @@
     "@angular/platform-browser": "^16.1.8",
     "@angular/platform-browser-dynamic": "^16.1.8",
     "@types/jest": "^29.5.2",
-    "@types/node": "^20.4.7",
+    "@types/node": "^20.4.8",
     "@types/web-animations-js": "^2.2.13",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
