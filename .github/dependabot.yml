@@ -13,9 +13,17 @@ updates:
       - dependencies
     ignore:
       - dependency-name: '@angular*'
-      - dependency-name: '@types/jest'
-      - dependency-name: 'jest*'
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
+    groups:
+      typescript and eslint:
+        patterns:
+          - '*typescript*'
+          - '*eslint*'
+        exclude-patterns:
+          - '*angular*'
+      types:
+        patterns:
+          - '@types/*'
