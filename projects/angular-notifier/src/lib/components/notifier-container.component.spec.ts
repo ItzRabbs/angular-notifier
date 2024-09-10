@@ -996,7 +996,7 @@ class MockNotifierNotificationComponent {
    * @override
    */
   public show(): Promise<void> {
-    return new Promise<void>((resolve) => {
+    return new Promise<void>(resolve => {
       resolve(); // Do nothing
     });
   }
@@ -1007,7 +1007,7 @@ class MockNotifierNotificationComponent {
    * @override
    */
   public shift(): Promise<void> {
-    return new Promise<void>((resolve) => {
+    return new Promise<void>(resolve => {
       resolve(); // Do nothing
     });
   }
@@ -1018,7 +1018,7 @@ class MockNotifierNotificationComponent {
    * @override
    */
   public hide(): Promise<void> {
-    return new Promise<void>((resolve) => {
+    return new Promise<void>(resolve => {
       resolve(); // Do nothing
     });
   }

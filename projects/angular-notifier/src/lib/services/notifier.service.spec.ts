@@ -179,7 +179,7 @@ describe('Notifier Service', () => {
       payload: testNotificationId,
       type: 'HIDE',
     };
-    service.actionStream.subscribe((action) => expect(action).toEqual(expectedAction));
+    service.actionStream.subscribe(action => expect(action).toEqual(expectedAction));
     service.hide(testNotificationId);
   });
 });

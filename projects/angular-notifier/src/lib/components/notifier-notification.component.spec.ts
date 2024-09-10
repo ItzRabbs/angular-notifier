@@ -81,7 +81,7 @@ describe('Notifier Notification Component', () => {
       });
       beforeEachWithConfig(testNotifierConfig, false);
 
-      const template = `<ng-template #tpl let-notificationData="notification"><div class="custom-notification-body">{{notificationData.message}}</div></ng-template>`;
+      const template = '<ng-template #tpl let-notificationData="notification"><div class="custom-notification-body">{{notificationData.message}}</div></ng-template>';
 
       const testcmp = createTestComponent(template);
 
