@@ -49,7 +49,7 @@
     "@angular/core": "^18.2.3",
     "@angular/platform-browser": "^18.2.3",
     "@angular/platform-browser-dynamic": "^18.2.3",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.13",
     "@types/node": "^22.5.4",
     "@types/web-animations-js": "^2.2.16",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
